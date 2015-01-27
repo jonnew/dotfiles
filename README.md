@@ -1,4 +1,5 @@
-config
-======
+jpnewman/jonnew/jon's config files
+====== 
 
-My personal configuration files
+- .vimrc
+- eagle.scr
