@@ -22,6 +22,9 @@ Plugin 'cespare/vim-toml'
 Plugin 'wting/rust.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
+" Plugin 'shime/vim-livedown'
+
 " Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -32,7 +35,7 @@ Plugin 'plasticboy/vim-markdown'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
+" Avoid a name conflict with L
 " Plugin 'user/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
@@ -49,3 +52,18 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" Customization of installed plugins
+let g:vim_markdown_math=1               " Highlight LaTeX syntax in markdown files
+let g:vim_markdown_folding_disabled=1   " Disable code folding in markdown files 
+
+" 'Standard' copy paste keymapping
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
+" Quick save using the leader key
+noremap <Leader>s :update<CR>
+" Toggle spelling on and off
+nmap <silent> <leader>p :set spell! spelllang=en_us<CR>
