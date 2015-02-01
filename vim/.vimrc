@@ -14,7 +14,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'cespare/vim-toml'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -23,6 +22,9 @@ Plugin 'wting/rust.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'cespare/vim-toml'
+
 " Plugin 'shime/vim-livedown'
 
 " Plugin 'tpope/vim-fugitive'
