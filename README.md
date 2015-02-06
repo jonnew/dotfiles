@@ -5,3 +5,4 @@ Includes configuation scripts and data for:
     - vim
     - eagle
     - git
+    - keyboard
