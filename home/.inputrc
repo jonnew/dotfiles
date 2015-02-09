@@ -1,0 +1,3 @@
+# Set the command line to vi-style input
+set editing-mode vi
+set keymap vi-command
