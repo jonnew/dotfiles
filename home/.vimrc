@@ -5,6 +5,7 @@ filetype off                  " required
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set nu
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -24,6 +25,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'cespare/vim-toml'
+Plugin 'sudar/vim-arduino-syntax'
 
 " Plugin 'shime/vim-livedown'
 
