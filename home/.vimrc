@@ -26,6 +26,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'cespare/vim-toml'
 Plugin 'sudar/vim-arduino-syntax'
+Plugin 'lervag/vim-latex'
 
 " Plugin 'shime/vim-livedown'
 
