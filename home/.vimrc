@@ -36,6 +36,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'sudar/vim-arduino-syntax'
 Plugin 'lervag/vim-latex'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 " Plugin 'shime/vim-livedown'
 
@@ -90,7 +91,15 @@ set nolist wrap linebreak breakat&vim
 " Open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 
