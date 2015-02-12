@@ -87,7 +87,8 @@ nmap <silent> <c-l> :wincmd l<CR>
 " Set line breaks to occur only at whitespace
 set nolist wrap linebreak breakat&vim
 
-
+" Open NERDTree with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
 
 
 
