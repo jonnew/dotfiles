@@ -1,3 +1,11 @@
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -5,6 +13,7 @@ filetype off                  " required
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set nu
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -24,6 +33,10 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'cespare/vim-toml'
+Plugin 'sudar/vim-arduino-syntax'
+Plugin 'lervag/vim-latex'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 " Plugin 'shime/vim-livedown'
 
@@ -45,15 +58,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+
+
 " Put your non-Plugin stuff after this line
+" -----------------------------------------
 
 " Customization of installed plugins
 let g:vim_markdown_math=1               " Highlight LaTeX syntax in markdown files
@@ -67,5 +75,34 @@ imap <C-v> <C-r><C-o>+
 
 " Quick save using the leader key
 noremap <Leader>s :update<CR>
+
 " Toggle spelling on and off
 nmap <silent> <leader>p :set spell! spelllang=en_us<CR>
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
+nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
+nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Set line breaks to occur only at whitespace
+set nolist wrap linebreak breakat&vim
+
+" Open NERDTree with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
+
+
+
