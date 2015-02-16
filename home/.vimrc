@@ -39,8 +39,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Yggdroot/indentLine'
-Plugin 'kien/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -65,11 +64,21 @@ filetype plugin indent on    " required
 " -----------------------------------------
 
 " Allow 256 colors
+" Required for airline.vim
 set t_Co=256
 
+" Solarized color theme
+" To use solarized in Guake, you need to first install the 
+" 16-color palette via:
+" git clone https://github.com/coolwanglu/guake-colors-solarized.git
+" cd guake-colors-solarized
+" ./set_dark.sh
+syntax enable
+set background=dark
+colorscheme solarized
+
 " Markdown syntax highlighting options 
-let g:vim_markdown_math=1               " Highlight LaTeX syntax in markdown files
-let g:vim_markdown_folding_disabled=1   " Disable code folding in markdown files 
+let g:vim_markdown_math=1 
 
 " 'Standard' copy paste keymapping
 vmap <C-c> "+yi
@@ -130,10 +139,3 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-" CtrlP options
-" Use <leader>t to open ctrlp
-let g:ctrlp_map = '<leader>t'
-" Ignore these directories
-set wildignore+=*/build/**
-" disable caching
-let g:ctrlp_use_caching=0
