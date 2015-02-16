@@ -40,6 +40,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-sensible'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
