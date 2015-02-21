@@ -93,11 +93,15 @@ noremap <Leader>s :update<CR>
 " Toggle spelling on and off
 nmap <silent> <leader>p :set spell! spelllang=en_us<CR>
 
-" Use ctrl-[hjkl] to select the active split!
+" Use ctrl-[hjkl] to select the active split
 nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
 nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
 nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
 nmap <silent> <c-l> :wincmd l<CR>
+
+" Use +/- to resize splits
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Set line breaks to occur only at whitespace
 set nolist wrap linebreak breakat&vim
@@ -110,6 +114,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
