@@ -6,3 +6,6 @@ export PATH=/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:/home/jon/.cabal/bin:$PATH
 eval `dircolors /usr/src/dircolors/dircolors.ansi-dark`
 alias grep='grep --color'
 alias ls='ls --color=auto'
+
+# Evince is very annoying to type
+alias rd='evince'
