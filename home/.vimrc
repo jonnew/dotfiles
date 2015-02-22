@@ -1,4 +1,4 @@
-" Brief help
+" Vundle brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
@@ -8,12 +8,6 @@
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-" Basic editor options
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set nu
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -61,7 +55,7 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-" Put your non-Plugin stuff after this line
+" Editor options
 " -----------------------------------------
 
 " Allow 256 colors
@@ -69,17 +63,23 @@ filetype plugin indent on    " required
 set t_Co=256
 
 " Solarized color theme
-" To use solarized in Guake, you need to first install the 
-" 16-color palette via:
-" git clone https://github.com/coolwanglu/guake-colors-solarized.git
-" cd guake-colors-solarized
-" ./set_dark.sh
+" To use solarized in Guake, you need to:
+" [1] git clone https://github.com/coolwanglu/guake-colors-solarized.git
+" [2] cd guake-colors-solarized
+" [3] ./set_dark.sh
 syntax enable
 set background=dark
 colorscheme solarized
 
-" Markdown syntax highlighting options 
-let g:vim_markdown_math=1 
+" Tabs to spaces 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set nu
+
+" Up/down move one row in reference to screen, not line number
+nmap j gj
+nmap k gk
 
 " 'Standard' copy paste keymapping
 vmap <C-c> "+yi
@@ -105,6 +105,12 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Set line breaks to occur only at whitespace
 set nolist wrap linebreak breakat&vim
+
+"  Plugin options
+" ------------------------------
+
+" Markdown syntax highlighting options 
+let g:vim_markdown_math=1 
 
 " Open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>

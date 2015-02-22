@@ -9,3 +9,6 @@ alias ls='ls --color=auto'
 
 # Evince is very annoying to type
 alias rd='evince'
+
+# Tell the number of running jobs 
+export PS1='\W[\j]\$ '
