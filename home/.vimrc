@@ -81,6 +81,10 @@ set nu
 nmap j gj
 nmap k gk
 
+" Insert lines below and above cursor in normal mode
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>k
+
 " 'Standard' copy paste keymapping
 vmap <C-c> "+yi
 vmap <C-x> "+c
