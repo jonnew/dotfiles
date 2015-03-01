@@ -25,7 +25,6 @@ Plugin 'wting/rust.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'cespare/vim-toml'
 Plugin 'sudar/vim-arduino-syntax'
 Plugin 'lervag/vim-latex'
@@ -35,6 +34,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-sensible'
+Plugin 'Shougo/neocomplete.vim'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -86,7 +86,7 @@ nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
 
 " 'Standard' copy paste keymapping
-vmap <C-c> "+yi
+vmap <C-c> "+y
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
@@ -130,10 +130,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Unset the YCM diagnostic display so it does not compete with
-" syntastic for C-family languages
-let g:ycm_show_diagnostics_ui = 0
-
 " Use powerline fonts with airline
 " In order to make this work:
 " [1] get a pre-pached font from powerline/fonts @ github
@@ -155,3 +151,13 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
+" Enable neocomplete at startup
+let g:neocomplete#enable_at_startup = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ neocomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
