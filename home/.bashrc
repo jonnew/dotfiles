@@ -1,4 +1,9 @@
-export PATH=/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:/home/jon/.cabal/bin:$PATH
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 
 # Use solarized theme for terminal  
 # To use this, you must first install the color database in /usr/src/dircolors
@@ -12,3 +17,6 @@ alias rd='evince'
 
 # Tell the number of running jobs 
 export PS1='\W[\j]\$ '
+
+# Xilinx ISE shortcut
+export PATH=/opt/xilinx/14.7/ISE_DS
