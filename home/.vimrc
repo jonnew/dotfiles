@@ -58,6 +58,11 @@ filetype plugin indent on    " required
 " Editor options
 " -----------------------------------------
 
+" Set backup locations to avoid swp files everywhere
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//i
+
 " Allow 256 colors
 " Required for airline.vim
 set t_Co=256
