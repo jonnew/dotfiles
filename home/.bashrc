@@ -19,4 +19,5 @@ alias rd='evince'
 export PS1='\W[\j]\$ '
 
 # Xilinx ISE shortcut
-export PATH=/opt/xilinx/14.7/ISE_DS
+export PATH=/opt/xilinx/14.7/ISE_DS:$PATH
+export PATH=/opt/cabal/1.22/bin:/opt/ghc/7.8.4/bin:/home/jon/.cabal/bin:$PATH
