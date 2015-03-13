@@ -1,4 +1,5 @@
 " Vundle brief help
+"
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
@@ -61,7 +62,7 @@ filetype plugin indent on    " required
 " Set backup locations to avoid swp files everywhere
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
-set undodir=~/.vim/undo//i
+set undodir=~/.vim/undo//
 
 " Allow 256 colors
 " Required for airline.vim
@@ -79,7 +80,9 @@ colorscheme solarized
 " Tabs to spaces 
 set tabstop=4
 set shiftwidth=4
-set expandtab
+"set expandtab
+
+" Turn line numbers on
 set nu
 
 " Up/down move one row in reference to screen, not line number
