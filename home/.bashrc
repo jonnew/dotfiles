@@ -21,3 +21,8 @@ export PS1='\W[\j]\$ '
 # Xilinx ISE shortcut
 export PATH=/opt/xilinx/14.7/ISE_DS:$PATH
 export PATH=/opt/cabal/1.22/bin:/opt/ghc/7.8.4/bin:/home/jon/.cabal/bin:$PATH
+export PATH=/opt/cmake-3.1.3-Linux-x86_64/bin:$PATH
+
+#Include the boost lib in include path
+export CPLUS_INCLUDE_PATH=/opt/boost_1_57_0:$CPLUS_INCLUDE_PATH
+
