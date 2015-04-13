@@ -23,8 +23,6 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugins on GitHub repos
 Plugin 'wting/rust.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'cespare/vim-toml'
 Plugin 'sudar/vim-arduino-syntax'
@@ -36,6 +34,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-sensible'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'atweiden/vim-dragvisuals'
+Plugin 'tpope/vim-markdown'
+Plugin 'nelstrom/vim-markdown-folding'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -121,9 +122,6 @@ set nolist wrap linebreak breakat&vim
 "  Plugin options
 " ------------------------------
 
-" Markdown syntax highlighting options 
-let g:vim_markdown_math=1 
-
 " Open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 
@@ -133,10 +131,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+let g:syntastic_cpp_include_dirs = ['/opt/boost_1_57_0']
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_c_remove_include_errors = 1
 
 " Use powerline fonts with airline
 " In order to make this work:
@@ -161,6 +162,7 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Enable neocomplete at startup
 let g:neocomplete#enable_at_startup = 1
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -169,3 +171,4 @@ function! s:check_back_space() "{{{
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
+
