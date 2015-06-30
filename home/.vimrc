@@ -1,5 +1,5 @@
 " Vundle brief help
-"
+
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
@@ -37,6 +37,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'atweiden/vim-dragvisuals'
 Plugin 'tpope/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'reedes/vim-lexical'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -57,7 +58,7 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-" Editor options
+" EDITOR OPTIONS
 " -----------------------------------------
 
 " Set backup locations to avoid swp files everywhere
@@ -86,6 +87,10 @@ set shiftwidth=4
 " Turn line numbers on
 set nu
 
+" Highlight characters over the 80 char margin
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/
+
 " Up/down move one row in reference to screen, not line number
 nmap j gj
 nmap k gk
@@ -100,16 +105,10 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
-" Quick save using the leader key
-noremap <Leader>s :update<CR>
-
-" Toggle spelling on and off
-nmap <silent> <leader>p :set spell! spelllang=en_us<CR>
-
 " Use ctrl-[hjkl] to select the active split
-nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
-nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
-nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 " Use +/- to resize splits
@@ -119,7 +118,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " Set line breaks to occur only at whitespace
 set nolist wrap linebreak breakat&vim
 
-"  Plugin options
+"  PLUGIN OPTIONS 
 " ------------------------------
 
 " Open NERDTree with Ctrl+n
@@ -150,15 +149,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled=1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Enable neocomplete at startup
 let g:neocomplete#enable_at_startup = 1
@@ -171,4 +161,35 @@ function! s:check_back_space() "{{{
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
+
+" Lexical config
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,md call lexical#init()
+  autocmd FileType txt call lexical#init()
+  autocmd FileType tex call lexical#init()
+augroup END
+
+" LEADERS
+" ------------------------------
+
+" Buffer selection
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+
+" Quick save
+noremap <Leader>s :update<CR>
+
+" Thesaurus
+let g:lexical#thesaurus_key = '<leader>t'
+
+" Toggle spelling on and off
+nmap <silent> <leader>p :set spell! spelllang=en_us<CR>
 
