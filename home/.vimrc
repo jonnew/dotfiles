@@ -82,7 +82,7 @@ colorscheme solarized
 " Tabs to spaces 
 set tabstop=4
 set shiftwidth=4
-"set expandtab
+set expandtab
 
 " Turn line numbers on
 set nu
@@ -90,6 +90,10 @@ set nu
 " Highlight characters over the 80 char margin
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%101v.\+/
+
+" Autowrap at 100 charaters
+set formatoptions+=t
+set tw=99
 
 " Up/down move one row in reference to screen, not line number
 nmap j gj
