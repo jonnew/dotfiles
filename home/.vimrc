@@ -89,7 +89,7 @@ set nu
 
 " Highlight characters over the 80 char margin
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%101v.\+/
+match OverLength /\%81v.\+/
 
 " Up/down move one row in reference to screen, not line number
 nmap j gj
@@ -170,6 +170,42 @@ augroup lexical
   autocmd FileType tex call lexical#init()
 augroup END
 
+" Escape special characters in a string for exact matching.
+" This is useful to copying strings from the file to the search tool
+" Based on this - http://peterodding.com/code/vim/profile/autoload/xolox/escape.vim
+function! EscapeString (string)
+  let string=a:string
+  " Escape regex characters
+  let string = escape(string, '^$.*\/~[]')
+  " Escape the line endings
+  let string = substitute(string, '\n', '\\n', 'g')
+  return string
+endfunction
+
+" Get the current visual block for search and replaces
+" This function passed the visual block through a string escape function
+" Based on this - http://stackoverflow.com/questions/676600/vim-replace-selected-text/677918#677918
+function! GetVisual() range
+  " Save the current register and clipboard
+  let reg_save = getreg('"')
+  let regtype_save = getregtype('"')
+  let cb_save = &clipboard
+  set clipboard&
+
+  " Put the current visual selection in the " register
+  normal! ""gvy
+  let selection = getreg('"')
+
+  " Put the saved registers and clipboards back
+  call setreg('"', reg_save, regtype_save)
+  let &clipboard = cb_save
+
+  "Escape any special characters in the selection
+  let escaped_selection = EscapeString(selection)
+
+  return escaped_selection
+endfunction
+
 " LEADERS
 " ------------------------------
 
@@ -183,6 +219,13 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
+
+" Find and replace under cursor and visual selection
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
+" vnoremap <Leader>r "hy:%s/<C-r>h//gc<left><left><left>
+
+" Start the find and replace command across the entire file
+map <leader>r <Esc>:%s/<c-r>=GetVisual()<cr>//g<left><left>
 
 " Quick save
 noremap <Leader>s :update<CR>
