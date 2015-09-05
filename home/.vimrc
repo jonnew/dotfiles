@@ -222,10 +222,10 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Find and replace under cursor and visual selection
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
-" vnoremap <Leader>r "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <leader>r <Esc>:%s/<c-r>=GetVisual()<cr>//g<left><left>
 
-" Start the find and replace command across the entire file
-map <leader>r <Esc>:%s/<c-r>=GetVisual()<cr>//g<left><left>
+" Delete trailing whitespace
+nnoremap <leader>w :%s/\s\+$//<CR>
 
 " Quick save
 noremap <Leader>s :update<CR>
