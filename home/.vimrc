@@ -66,14 +66,14 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" Allow 256 colors
-" Required for airline.vim
-set t_Co=256
-
 " Solarized color theme
 " To use solarized in Guake, you need to:
 " [1] git clone https://github.com/coolwanglu/guake-colors-solarized.git
 " [2] cd guake-colors-solarized
+" [3] ./set_dark.sh
+" To use solarized in GNOME Terminal, you need to:
+" [1] git clone https://github.com/sigurdga/gnome-terminal-colors-solarized.git
+" [2] cd gnome-terminal-colors-solarizedc
 " [3] ./set_dark.sh
 syntax enable
 set background=dark
@@ -130,7 +130,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
-let g:syntastic_cpp_include_dirs = ['/opt/boost_1_57_0']
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
