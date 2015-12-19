@@ -4,16 +4,15 @@
 
 -- This is setup for dual 1920x1080 monitors, with the right monitor as primary
 Config {
-    font = "xft:Fixed-14",
+    font = "xft:Fixed-9",
     bgColor = "#000000",
     fgColor = "#ffffff",
     position = Top,
-    --position = Static { xpos = 0, ypos = 0, width = 2560, height = 20 },
     lowerOnStart = True,
     commands = [
         Run BatteryP ["BAT0"] [ "-t", "<acstatus>"
                               , "-L", "10", "-H", "80"
-                              , "-l", "red", "-h", "green"
+                              , "-h","#CEFFAC","-l","#FFB6B0","-n","#FFFFCC"
                               , "--", "-O", "Charging", "-o", "Battery: <left>%"
                               ] 10, 
         -- Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10 
@@ -26,5 +25,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = " %StdinReader% }{ %battery%  |  %multicpu%   %memory%   %swap%  |  %wlan0%  |  <fc=#FFFFCC>%date%</fc> "
+    template = " %StdinReader% }{ %wlan0%  |  %multicpu%   %memory%   %swap%  |  %battery%  |  <fc=#FFFFCC>%date%</fc> "
 }

@@ -10,8 +10,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
-
-
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
@@ -20,7 +18,6 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-
 
 ------------------------------------------------------------------------
 -- Terminal
@@ -41,15 +38,13 @@ myScreenshot = "screenshot"
 
 -- The command to use as a launcher, to launch commands that don't have
 -- preset keybindings.
-myLauncher = "$(yeganesh -x -- -fn '-*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
-
+myLauncher = "$(yeganesh -x -- -b -fn '-misc-fixed-*-*-*-*-21-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
 
 ------------------------------------------------------------------------
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
 myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..9]
-
 
 ------------------------------------------------------------------------
 -- Window rules
