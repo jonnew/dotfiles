@@ -1,4 +1,4 @@
-### jpnewman/jonnew/jon's config and dot files
+### jpnewman/jonnew/jon's dotfiles, config files, etc
 Includes configuation scripts and data for:
 
     - vim
