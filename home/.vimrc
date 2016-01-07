@@ -99,6 +99,9 @@ nmap k gk
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
 
+" Map Y to copy the rest of the line instead of full line
+nmap Y y$
+
 " 'Standard' copy paste keymapping
 vmap <C-c> "+y
 vmap <C-x> "+c
