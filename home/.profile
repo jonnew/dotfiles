@@ -34,5 +34,6 @@ id1=$(xinput --list | awk -v search="TPPS" \
 
 for i in $id1
 do
-    xinput set-prop $i 263 0.3 
+    xinput set-prop $i "Device Accel Constant Deceleration" 0.5
+    xinput set-prop $i "Device Accel Velocity Scaling" 10
 done
