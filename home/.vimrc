@@ -155,6 +155,9 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 " Enable neocomplete at startup
 let g:neocomplete#enable_at_startup = 1
 
+" Disable neocomplete for markdown files
+autocmd FileType markdown nested NeoCompleteLock
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
