@@ -15,6 +15,9 @@ alias ls='ls --color=auto'
 # Evince is very annoying to type
 alias rd='evince'
 
+# Make xclip useful
+alias xclip="xclip -selection c"
+
 # Tell the number of running jobs 
 export PS1='\W[\j]\$ '
 
