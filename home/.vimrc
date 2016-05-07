@@ -38,6 +38,7 @@ Plugin 'atweiden/vim-dragvisuals'
 Plugin 'tpope/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'reedes/vim-lexical'
+Plugin 'mrtazz/DoxygenToolkit.vim'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -132,13 +133,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_remove_include_errors = 1
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_c_remove_include_errors = 1
 
 " Use powerline fonts with airline
 " In order to make this work:
@@ -232,6 +235,9 @@ vnoremap <leader>r <Esc>:%s/<c-r>=GetVisual()<cr>//g<left><left>
 " Delete trailing whitespace
 nnoremap <leader>w :%s/\s\+$//<CR>
 
+" Delete windows style line endings
+nnoremap <leader>e :%s/\r$//<CR>
+
 " Quick save
 noremap <Leader>s :update<CR>
 
@@ -240,4 +246,3 @@ let g:lexical#thesaurus_key = '<leader>t'
 
 " Toggle spelling on and off
 nmap <silent> <leader>p :set spell! spelllang=en_us<CR>
-
