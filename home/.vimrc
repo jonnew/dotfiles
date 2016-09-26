@@ -28,7 +28,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'sudar/vim-arduino-syntax'
 Plugin 'lervag/vim-latex'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
@@ -61,6 +61,9 @@ filetype plugin indent on    " required
 
 " EDITOR OPTIONS
 " -----------------------------------------
+
+" Persistent undo
+set undofile
 
 " Set backup locations to avoid swp files everywhere
 set backupdir=~/.vim/backup//
@@ -129,19 +132,22 @@ set nolist wrap linebreak breakat&vim
 map <C-n> :NERDTreeToggle<CR>
 
 " Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_remove_include_errors = 1
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_c_include_dirs=['/usr/local/include/', '/usr/share/include']
+" 
+" let g:syntastic_cpp_checkers=['gcc', 'cppcheck', 'clang_tidy']
+" let g:syntastic_cpp_compiler = "g++"
+" let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++ -Wall -Wextra -Wpedantic'
+" let g:syntastic_cpp_check_header = 1
+" let g:syntastic_cpp_remove_include_errors = 1
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " Use powerline fonts with airline
 " In order to make this work:
@@ -246,3 +252,7 @@ let g:lexical#thesaurus_key = '<leader>t'
 
 " Toggle spelling on and off
 nmap <silent> <leader>p :set spell! spelllang=en_us<CR>
+
+" clang-format config
+map <silent> <leader>q :pyf /usr/share/vim/addons/syntax/clang-format-3.8.py<cr>
+" imap <silent> <leader>q: pyf /usr/share/vim/addons/syntax/clang-format-3.8.py style=file<cr>
