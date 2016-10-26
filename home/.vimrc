@@ -39,6 +39,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'reedes/vim-lexical'
 Plugin 'mrtazz/DoxygenToolkit.vim'
+Plugin 'lervag/vimtex'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
