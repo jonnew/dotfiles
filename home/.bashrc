@@ -12,24 +12,30 @@ eval `dircolors /usr/src/dircolors/dircolors.ansi-dark`
 alias grep='grep --color'
 alias ls='ls --color=auto'
 
+# Aliases
 # Evince is very annoying to type
 alias rd='evince'
-
 # Make xclip useful
 alias xclip="xclip -selection c"
+# My home network sucks
+alias nmr="sudo service network-manager restart"
 
 # Tell the number of running jobs
-export PS1='\e[0;33m\W[\j]\$ \e[m'
+export PS1='\[\033[01;37m\]\W[\j]$ \[\033[0m\]'
 
 #Include the boost lib in include path and dynamic link path
 export CPLUS_INCLUDE_PATH=/opt/boost_1_63_0:$CPLUS_INCLUDE_PATH
 export LD_LIBRARY_PATH=/opt/boost_1_63_0/stage/lib:$LD_LIBRARY_PATH
-export LIBRARY_PATH=/opt/boost_1_63_0/stage/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=/opt/boost_1_63_0/stage/lib:$LIBRARY_PATH
 
 # HDF5
 export CPLUS_INCLUDE_PATH=/usr/local/hdf5/include:$CPLUS_INCLUDE_PATH
 export LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
+
+# ffmpeg
+export LD_LIBRARY_PATH=/opt/ffmpeg:$LD_LIBRARY_PATH
+export LIBRARY_PATH=/opt/ffmpeg:$LIBRARY_PATH
 
 # Arduino Makefile
 export ARDUINO_DIR=/opt/arduino-1.6.6
@@ -41,4 +47,12 @@ eval "$(/home/jon/public/Oat/oat/bin/oat init -)"
 # Texlive
 export PATH="/usr/local/texlive/2016/bin/x86_64-linux:$PATH"
 
-export PATH=/home/jon/anaconda3/bin:$PATH
+# Anaconda
+export PATH=$HOME/anaconda3/bin:$PATH
+
+# Cypress studio
+export PATH=$PATH:$HOME/cypress/arm-2013.11/bin
+export FX3_INSTALL_PATH=$HOME/cypress/cyfx3sdk
+export ARMGCC_INSTALL_PATH=$HOME/cypress/arm-2013.11
+export ARMGCC_VERSION=4.8.1
+export CYUSB_ROOT=$HOME/cypress/cyusb_linux_1.0.4
