@@ -19,6 +19,8 @@ alias rd='evince'
 alias xclip="xclip -selection c"
 # My home network sucks
 alias nmr="sudo service network-manager restart"
+# SSH Agent
+alias ssa='eval $(ssh-agent) && ssh-add'
 
 # Tell the number of running jobs
 export PS1='\[\033[01;37m\]\W[\j]$ \[\033[0m\]'

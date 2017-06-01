@@ -28,7 +28,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'sudar/vim-arduino-syntax'
 Plugin 'lervag/vim-latex'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
@@ -40,6 +40,8 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'reedes/vim-lexical'
 Plugin 'mrtazz/DoxygenToolkit.vim'
 Plugin 'lervag/vimtex'
+Plugin 'fidian/hexmode'
+Plugin 'majutsushi/tagbar'
 
 " Specialized install examples:
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -132,23 +134,13 @@ set nolist wrap linebreak breakat&vim
 " Open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 
-" Syntastic config
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" 
-" let g:syntastic_c_include_dirs=['/usr/local/include/', '/usr/share/include']
-" 
-" let g:syntastic_cpp_checkers=['gcc', 'cppcheck', 'clang_tidy']
-" let g:syntastic_cpp_compiler = "g++"
-" let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++ -Wall -Wextra -Wpedantic'
-" let g:syntastic_cpp_check_header = 1
-" let g:syntastic_cpp_remove_include_errors = 1
-" 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+" Open Tagbard with Ctrl+t
+map <C-t> :TagbarToggle<CR>
+
+" NERDTree options
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeQuitOnOpen = 1
 
 " Use powerline fonts with airline
 " In order to make this work:
@@ -220,6 +212,9 @@ function! GetVisual() range
 
   return escaped_selection
 endfunction
+
+" Set ALE linters
+let g:ale_linters = {'cpp': 'all'}
 
 " LEADERS
 " ------------------------------
