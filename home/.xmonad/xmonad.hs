@@ -31,10 +31,10 @@ myScreensaver = "/usr/bin/gnome-screensaver-command --lock"
 
 -- The command to take a selective screenshot, where you select
 -- what you'd like to capture on the screen.
-mySelectScreenshot = "select-screenshot"
+mySelectScreenshot = "scrot '%Y-%m-%d_$wx$h_scrot.png' -u"
 
 -- The command to take a fullscreen screenshot.
-myScreenshot = "screenshot"
+myScreenshot = "scrot '%Y-%m-%d_$wx$h_scrot.png'"
 
 -- The command to use as a launcher, to launch commands that don't have
 -- preset keybindings.
@@ -44,7 +44,7 @@ myLauncher = "$(yeganesh -x -- -b -fn '-misc-fixed-*-*-*-*-21-*-*-*-*-*-*-*' -nb
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..9]
+myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media","6:game"] ++ map show [7..9]
 
 ------------------------------------------------------------------------
 -- Window rules
@@ -61,16 +61,17 @@ myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..9]
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Chromium"       --> doShift "2:web"
-    , className =? "Google-chrome"  --> doShift "2:web"
+    [ className =? "google-chrome"  --> doShift "2:web"
     , resource  =? "desktop_window" --> doIgnore
-    , className =? "Galculator"     --> doFloat
+    , className =? "Steam"          --> doShift "6:game"
     , className =? "Steam"          --> doFloat
+    , className =? "csgo_linux"     --> doFullFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "gpicview"       --> doFloat
     , className =? "MPlayer"        --> doFloat
     , className =? "VirtualBox"     --> doShift "4:vm"
-    , className =? "Xchat"          --> doShift "5:media"
+    , className =? "Spotify"        --> doShift "5:media"
+    , className =? "Spotify"        --> doFloat
     , className =? "stalonetray"    --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
@@ -86,21 +87,19 @@ myManageHook = composeAll
 -- which denotes layout choice.
 --
 myLayout = avoidStruts (
-    ThreeColMid 1 (3/100) (1/2) |||
     Tall 1 (3/100) (1/2) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
     tabbed shrinkText tabConfig |||
-    Full |||
-    spiral (6/7)) |||
+    Full) |||
+    --spiral (6/7)) |||
     noBorders (fullscreenFull Full)
 
 
 ------------------------------------------------------------------------
 -- Colors and borders
 -- Currently based on the ir_black theme.
---
 myNormalBorderColor  = "#7c7c7c"
-myFocusedBorderColor = "#ffb6b0"
+myFocusedBorderColor = "#ff5050"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
@@ -119,7 +118,7 @@ xmobarTitleColor = "#FFB6B0"
 xmobarCurrentWorkspaceColor = "#CEFFAC"
 
 -- Width of the window border in pixels.
-myBorderWidth = 1
+myBorderWidth = 2
 
 
 ------------------------------------------------------------------------
@@ -151,11 +150,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn myLauncher)
 
   -- Take a selective screenshot using the command specified by mySelectScreenshot.
-  , ((modMask .|. shiftMask, xK_p),
+  , ((modMask, xK_Print),
      spawn mySelectScreenshot)
 
   -- Take a full screenshot using the command specified by myScreenshot.
-  , ((modMask .|. controlMask .|. shiftMask, xK_p),
+  , ((0, xK_Print),
      spawn myScreenshot)
 
   -- Mute volume.
@@ -164,11 +163,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Decrease volume.
   , ((0, 0x1008FF13),
-     spawn "amixer -D pulse sset Master 10%+")
+     spawn "amixer -D pulse sset Master 5%+")
 
   -- Increase volume.
   , ((0, 0x1008FF11),
-     spawn "amixer -D pulse sset Master 10%-")
+     spawn "amixer -D pulse sset Master 5%-")
 
   -- Increase screen brightness
   , ((0, 0x1008ff02),
@@ -336,7 +335,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 myStartupHook = do
     spawn "xset rate r 200 100"
     spawn "xinput set-prop 11 \"Device Enabled\" 0"
-    
+
 
 ------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
