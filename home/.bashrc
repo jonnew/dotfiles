@@ -13,14 +13,16 @@ alias grep='grep --color'
 alias ls='ls --color=auto'
 
 # Aliases
-# Evince is very annoying to type
-alias rd='evince'
+# Xdg-open is very annoying to type
+alias rd='xdg-open '
 # Make xclip useful
 alias xclip="xclip -selection c"
 # My home network sucks
 alias nmr="sudo service network-manager restart"
 # SSH Agent
 alias ssa='eval $(ssh-agent) && ssh-add'
+# MWL data
+alias mwl='sshfs -o idmap=user jon@mwldata.mit.edu: ~/mwldata'
 
 # Tell the number of running jobs
 export PS1='\[\033[01;37m\]\W[\j]$ \[\033[0m\]'
