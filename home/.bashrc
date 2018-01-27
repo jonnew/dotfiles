@@ -23,6 +23,8 @@ alias nmr="sudo service network-manager restart"
 alias ssa='eval $(ssh-agent) && ssh-add'
 # MWL data
 alias mwl='sshfs -o idmap=user jon@mwldata.mit.edu: ~/mwldata'
+# Put files in trash
+alias tsh='gvfs-trash'
 
 # Tell the number of running jobs
 export PS1='\[\033[01;37m\]\W[\j]$ \[\033[0m\]'
@@ -36,6 +38,9 @@ export LIBRARY_PATH=/opt/boost_1_63_0/stage/lib:$LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=/usr/local/hdf5/include:$CPLUS_INCLUDE_PATH
 export LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
+
+# oepcie
+export LD_LIBRARY_PATH=/usr/local/lib/oepcie:$LD_LIBRARY_PATH
 
 # ffmpeg
 export LD_LIBRARY_PATH=/opt/ffmpeg:$LD_LIBRARY_PATH
