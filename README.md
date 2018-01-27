@@ -15,11 +15,6 @@ _Each branch contains dotfiles for a different computer setup_.
 
 1. To use xmonad configuration, you need to create symlink from ~/.xsession ->
    ~/.xmonad/bin/xsession
-1. Install yeganesh
-    - Copy the binary](http://dmwit.com/yeganesh/yeganesh-2.5-bin.tar.gz) to
-      /usr/bin or something
-    - Or use cabal install but make sure to put executable in /usr/bin or
-      similar
 
 1. Modify ~/.xmobar.hs to match current display characteristics using the
    `position` parameter
@@ -44,3 +39,12 @@ _Each branch contains dotfiles for a different computer setup_.
     - `pass git init`
     - `pass git remote add origin <git-repo>`
     - `pass git pull`
+
+1. Setup clang-format
+    - `sudo apt-get install clang-format`
+    - Put
+      [clang-format.py](https://github.com/llvm-mirror/clang/blob/master/tools/clang-format/clang-format.py)
+      in /usr/share/vim/addons/syntax/
+    - You may have to change how this script is called in `.vimrc` depending
+      which python version vim is using. See
+      [this](https://stackoverflow.com/questions/39490082/clang-format-not-working-under-gvim)
