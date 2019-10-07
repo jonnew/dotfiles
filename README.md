@@ -21,7 +21,7 @@ _Each branch contains dotfiles for a different computer setup_.
 
 1. Modify ~/.Xresources to get a decently sized font setting using the `dpi`
    parameter. This just requires trial and error. You can restart xmobar to see
-   the effects (`alt-q`). 
+   the effects (`alt-q`).
 
 1. Setup `pass`
     - Move your gpg keys to the new computer
@@ -47,4 +47,12 @@ _Each branch contains dotfiles for a different computer setup_.
       in /usr/share/vim/addons/syntax/
     - You may have to change how this script is called in `.vimrc` depending
       which python version vim is using. See
-      [this](https://stackoverflow.com/questions/39490082/clang-format-not-working-under-gvim)
+      [this post.](https://stackoverflow.com/questions/39490082/clang-format-not-working-under-gvim)
+    - For convenience, I've included clang-format-py3.py in this branch for python 3 support.
+      Call with something like the following from .vimrc
+
+``` vim
+" Clang format
+map <Leader>q :py3f /usr/share/clang/clang-format-6.0/clang-format-py3.py<cr>
+imap <leader>q :py3f /usr/share/clang/clang-format-6.0/clang-format-py3.py<cr>
+```
